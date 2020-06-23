@@ -3,6 +3,9 @@ using Xamarin.Forms;
 using CoverMyCar.Services;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace CoverMyCar
 {
@@ -19,12 +22,16 @@ namespace CoverMyCar
             MainPage = new SplashPage();
         }
 
-        protected override void OnStart()
-        {
-            // Handle when your app starts
+        protected override void OnStart() 
+        { 
+                AppCenter.Start("android=046ccbae-cd95-4731-9b9b-56f3e81ffb6f;" +
+                  "uwp={Your UWP App secret here};" +
+                  "ios={Your iOS App secret here}",
+                  typeof(Analytics), typeof(Crashes));
+
         }
 
-        protected override void OnSleep()
+    protected override void OnSleep()
         {
             // Handle when your app sleeps
         }
