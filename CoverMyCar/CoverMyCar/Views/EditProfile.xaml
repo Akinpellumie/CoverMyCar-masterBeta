@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Controls="clr-namespace:CoverMyCar.CustomControls"
+             xmlns:PickerControl="clr-namespace:CoverMyCar.CustomControls"
+             mc:Ignorable="d"
+             x:Class="CoverMyCar.Views.EditProfile"
+              Shell.BackgroundColor="Accent"
+             Shell.TabBarBackgroundColor="Accent"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True" Shell.NavBarIsVisible="True"
+             Title="Edit Profile">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     Text="Save" Clicked="UpdateAgentClicked"
+                     Priority="0"/>
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Margin="15,0,15,50">
+                <ProgressBar Grid.Row="0" Progress="0.2" IsVisible="False" HorizontalOptions="FillAndExpand" x:Name="Indic"/>
+
+                <StackLayout>
+                    <Label Margin="7,5,5,5" Text="Firstname" TextColor="{StaticResource TxtColor}"/>
+                    <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
+                        <Controls:CustomEntry x:Name="FNInput" Text="{Binding firstname}" FontSize="Subtitle"  FontFamily="OpenSans"
+                                               Placeholder="firstname" 
+                                              PlaceholderColor="{StaticResource TypeColor}" Keyboard="Default" 
+                                  Margin="5,0,0,3" VerticalOptions="End"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Margin="7,5,5,5" Text="Lastname" TextColor="{StaticResource TxtColor}"/>
+                    <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
+                        <Controls:CustomEntry x:Name="LNInput" Text="{Binding lastname}" FontSize="Subtitle"  FontFamily="OpenSans"
+                                               Keyboard="Default" Placeholder="lastname" 
+                                  Margin="5,0,0,3" VerticalOptions="End" PlaceholderColor="{StaticResource TypeColor}" />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Margin="7,5,5,5" Text="Email" TextColor="{StaticResource TxtColor}"/>
+                    <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
+                        <Controls:CustomEntry x:Name="EMInput" Text="{Binding email}" FontSize="Subtitle"  FontFamily="OpenSans"
+                                               Keyboard="Default" Placeholder="example@mail.com" 
+                                Margin="5,0,0,3" VerticalOptions="End" PlaceholderColor="{StaticResource TypeColor}" />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Margin="7,5,5,5" Text="Select Gender" TextColor="{StaticResource TxtColor}"/>
+                    <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
+                        <PickerControl:CustomPicker x:Name="GenderPicker" Title="--Select Gender--"
+                                    SelectedIndexChanged="GndPck_SldIdxChanged" FontSize="Subtitle"  FontFamily="OpenSans"
+                                    ItemsSource="{Binding GenderList}" Margin="5,0,0,3" VerticalOptions="End"
+                                    ItemDisplayBinding="{Binding Value}"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Margin="7,5,5,5" Text="Phone Number" TextColor="{StaticResource TxtColor}"/>
+                    <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
+                        <Controls:CustomEntry x:Name="PNInput"  Text="{Binding phonenumber}" FontSize="Subtitle"  FontFamily="OpenSans"
+                                     Keyboard="Numeric" Placeholder="phone number" 
+                                   Margin="5,0,0,3" VerticalOptions="End" PlaceholderColor="{StaticResource TypeColor}" />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Margin="7,5,5,5" Text="Address" TextColor="{StaticResource TxtColor}"/>
+                    <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
+                        <Controls:CustomEntry x:Name="ADRInput" Text="{Binding address}" FontSize="Subtitle"  FontFamily="OpenSans"
+                              Keyboard="Default" Placeholder="Address" 
+                             Margin="5,0,0,3" VerticalOptions="End" PlaceholderColor="{StaticResource TypeColor}" />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Margin="7,5,5,5" Text="Select Bank Name" TextColor="{StaticResource TxtColor}"/>
+                    <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
+                        <PickerControl:CustomPicker HeightRequest="50" x:Name="BankPicker" 
+                           SelectedIndexChanged="BnkPck_SldIdxChanged" Margin="5,0,0,3" VerticalOptions="End"
+                           ItemsSource="{Binding BankList}" FontSize="Subtitle"  FontFamily="OpenSans"
+                           ItemDisplayBinding="{Binding name}" Title="--Select Bank--"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Margin="7,5,5,5" Text="Account Number" TextColor="{StaticResource TxtColor}"/>
+                    <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
+                        <Controls:CustomEntry TextChanged="Input_TextChanged" x:Name="ACNInput" FontSize="Subtitle"  FontFamily="OpenSans" 
+                              Text="{Binding account_number}" Keyboard="Numeric" Placeholder="XXXX-XXXX-XX" 
+                               Margin="5,0,0,3" VerticalOptions="End" PlaceholderColor="{StaticResource TypeColor}" />
+                    </Frame>
+                </StackLayout>
+
+                <ActivityIndicator x:Name="indicator" Grid.RowSpan="2" BackgroundColor="#F0F6FB" 
+                                   VerticalOptions="Center"  IsVisible="False"  HorizontalOptions="Center" />
+
+                <StackLayout Margin="0,0,0,40">
+                    <Label Margin="7,5,5,5" Text="Account Name" TextColor="{StaticResource TxtColor}"/>
+                    <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
+                        <Controls:CustomEntry x:Name="ANMInput" TextChanged="Input2_TextChanged" FontSize="Subtitle"  FontFamily="OpenSans" 
+                            Text="{Binding account_name}" Keyboard="Default" Placeholder="Account name" 
+                            Margin="5,0,0,3" VerticalOptions="End" PlaceholderColor="{StaticResource TypeColor}" />
+                    </Frame>
+                </StackLayout>
+
+
+                <!--<Button  Margin="60,20,60,20" FontSize="20" BorderRadius="6" WidthRequest="157"
+                         HeightRequest="45" HorizontalOptions="CenterAndExpand" TextColor="White" 
+                         BackgroundColor="{StaticResource BtnColor}" Text="Save"  ContentLayout="0, right" ImageSource="save.png"/>-->
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

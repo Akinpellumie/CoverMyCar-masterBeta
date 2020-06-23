@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" viewBox="0 0 500 250">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 62.5px;
+        fill: #2fcf8f;
+        font-family: "Pacific Again";
+      }
+    </style>
+  </defs>
+  <text id="Cover.ng" class="cls-1" x="194" y="137">Cover.ng</text>
+  <text id="Peer" class="cls-1" x="102" y="144">Peer</text>
+</svg>

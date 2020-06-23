@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Shell.BackgroundColor="Accent"
+             Shell.TabBarBackgroundColor="Accent"
+             NavigationPage.HasBackButton="True"
+             x:Class="CoverMyCar.Views.SingleComm"
+             Title="Community">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="CommSingleStack" Orientation="Vertical" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                <StackLayout Grid.Row="0">
+                    <Label Text="{Binding community_name}" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" 
+                          Margin="8" TextColor="{StaticResource TxtColor}"/>
+
+                    <StackLayout Spacing="0" Padding="0" BackgroundColor="#f5fafa" 
+                                     HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Image Margin="8" Source="mapMarker.png" HeightRequest="20" WidthRequest="20" 
+                               VerticalOptions="CenterAndExpand"/>
+                        <Label Margin="8" FontSize="14" TextColor="{StaticResource TxtColor}" Text="{Binding address}" />
+                    </StackLayout>
+
+                    <StackLayout Spacing="0" Padding="0" BackgroundColor="#f5fafa" 
+                                     HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Image Margin="8" Source="email.png" HeightRequest="20" WidthRequest="20" 
+                               VerticalOptions="CenterAndExpand"/>
+                        <Label Margin="8" FontSize="14" TextColor="{StaticResource TxtColor}" Text="{Binding email}" />
+                    </StackLayout>
+
+                    <StackLayout Spacing="0" Padding="0" BackgroundColor="#f5fafa" 
+                                     HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Image Margin="8" Source="web.png" HeightRequest="20" WidthRequest="20" 
+                               VerticalOptions="CenterAndExpand"/>
+                        <Label Margin="8" FontSize="14" TextColor="{StaticResource TxtColor}" Text="{Binding website_url}" />
+                    </StackLayout>
+
+                    <StackLayout Spacing="0" Padding="0" BackgroundColor="#f5fafa" 
+                                     HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Image Margin="8" Source="total.png" HeightRequest="20" WidthRequest="20" 
+                               VerticalOptions="CenterAndExpand"/>
+                        <Label Margin="8" FontSize="14" TextColor="{StaticResource TxtColor}" Text="{Binding no_of_members}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <ActivityIndicator x:Name="indicator" BackgroundColor="White" Opacity="0.8" IsVisible="False" Margin="0,5,0,0"  Grid.RowSpan="2" 
+                           VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" IsRunning="False" FlexLayout.Grow="5"/>
+
+                <Frame x:Name="Frm2" IsVisible="True" Margin="0,5,0,0" Padding="0" Grid.Row="1">
+                    <StackLayout Margin="0,0,0,5">
+                        <Grid HorizontalOptions="FillAndExpand" Margin="0,1,0,3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="MEMBERS" Grid.Column="0" Margin="10,0,0,0" HorizontalOptions="Start" 
+                       VerticalOptions="CenterAndExpand" TextColor="{StaticResource Primary}" FontSize="Subtitle"/>
+                            <ImageButton x:Name="chvUp" Source="chevronDn.png" Grid.Column="1" Aspect="Fill" HeightRequest="24" 
+                                             WidthRequest="24" BackgroundColor="Transparent" HorizontalOptions="End" Clicked="SubHider_clicked" Margin="0,0,5,0"/>
+                        </Grid>
+                        <ScrollView>
+                            <StackLayout x:Name="actSubHide" IsVisible="True">
+                                <ListView x:Name="MemList" HasUnevenRows="True"
+                          SeparatorVisibility="Default" SeparatorColor="LightGray" IsPullToRefreshEnabled="False">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout>
+                                                    <Label Text="{Binding capitalizedname}" FontSize="18" TextColor="{StaticResource TxtColor}"
+                                                           Margin="6"/>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="Frm2b" IsVisible="False" Margin="0,5,0,0" Padding="0" Grid.Row="2">
+                    <StackLayout Margin="0,0,0,5">
+                        <Grid HorizontalOptions="FillAndExpand" Margin="0,1,0,3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="MEMBERS" Grid.Column="0" Margin="10,0,0,0" HorizontalOptions="Start" 
+                       VerticalOptions="CenterAndExpand" TextColor="{StaticResource Primary}" FontSize="12"/>
+                            <ImageButton x:Name="chvBUp" Source="chevronP.png" Grid.Column="1" Aspect="Fill" HeightRequest="24" 
+                                             WidthRequest="24" BackgroundColor="Transparent" HorizontalOptions="End" Clicked="SubHider_clicked" Margin="0,0,5,0"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

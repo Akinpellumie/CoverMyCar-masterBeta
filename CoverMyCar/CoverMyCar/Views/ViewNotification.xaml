@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CoverMyCar.Views.ViewNotification"
+             Shell.BackgroundColor="Accent"
+             Shell.TabBarBackgroundColor="Accent"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True" Shell.NavBarIsVisible="True"
+             Title="Notification">
+    <ContentPage.Content>
+        <StackLayout Margin="10" x:Name="SingleMsgDetails">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0">
+                    <StackLayout HorizontalOptions="StartAndExpand" Margin="10">
+                        <Label Text="{Binding subject}" TextColor="{StaticResource TxtColor}" 
+                              FontAttributes="Bold" FontSize="18"/>
+                    </StackLayout>
+                    <StackLayout  HorizontalOptions="StartAndExpand" Margin="10">
+                        <Frame BackgroundColor="#D8D8D8" WidthRequest="50" HeightRequest="20" HasShadow="True">
+                            <Label Text="Inbox" FontSize="Small"
+                                TextColor="{StaticResource Primary}"/>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand" Margin="10">
+                        <Label Text="{Binding DateFormat}" TextColor="{StaticResource TxtColor}" 
+                               FontSize="15" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                    <Label Text="{Binding body}" TextColor="{StaticResource TxtColor}"
+                           FontSize="15" LineBreakMode="WordWrap"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" Margin="10">
+                    <Button Text="Go To Claim" TextColor="White" Clicked="LoadSingleClaim" CornerRadius="50"
+                           HeightRequest="45" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource Primary}"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
