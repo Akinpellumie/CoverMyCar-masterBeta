@@ -13,6 +13,7 @@ using FFImageLoading.Forms.Platform;
 using Android.OS;
 using static Android.Provider.Settings;
 using CoverMyCar.Settings;
+using Android.Content;
 
 namespace CoverMyCar.Droid
 {
@@ -75,6 +76,13 @@ namespace CoverMyCar.Droid
                 return true;
             }
         }
+
+        //Initializing a custom font for android OS
+        protected override void AttachBaseContext(Context context)
+        {
+            base.AttachBaseContext(Calligraphy.CalligraphyContextWrapper.Wrap(context));
+        }
+
 
         //Apps that are running on Android 8.0 (API level 26) or higher must create a notification channel for publishing their notifications. This method will create a notification panel
 

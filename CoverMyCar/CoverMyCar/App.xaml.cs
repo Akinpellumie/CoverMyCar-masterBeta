@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Xamarin.Essentials;
 
 namespace CoverMyCar
 {
@@ -23,7 +24,8 @@ namespace CoverMyCar
         }
 
         protected override void OnStart() 
-        { 
+        {
+            Permission();
                 AppCenter.Start("android=046ccbae-cd95-4731-9b9b-56f3e81ffb6f;" +
                   "uwp={Your UWP App secret here};" +
                   "ios={Your iOS App secret here}",
@@ -41,6 +43,15 @@ namespace CoverMyCar
             // Handle when your app resumes
         }
 
+        async void Permission()
+        {
+            await Permissions.RequestAsync<Permissions.Camera>();
+            await Permissions.RequestAsync<Permissions.StorageRead>();
+            await Permissions.RequestAsync<Permissions.StorageWrite>();
+            await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            await Permissions.RequestAsync<Permissions.LocationAlways>();
+            await Permissions.RequestAsync<Permissions.NetworkState>();
+        }
 
     }
 }

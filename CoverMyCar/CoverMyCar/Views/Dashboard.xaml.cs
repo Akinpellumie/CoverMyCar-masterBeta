@@ -83,12 +83,17 @@ namespace CoverMyCar.Views
             HelperAppSettings.lastname = "";
             HelperAppSettings.username = "";
             HelperAppSettings.email = "";
-            HelperAppSettings.agentType = "";
-            HelperAppSettings.loss_assessor_id = "";
-            HelperAppSettings.marketing_consultant_id = "";
             HelperAppSettings.phonenumber = "";
-            HelperAppSettings.commCode = "";
+            HelperAppSettings.loss_assessor_id = "";
+            HelperAppSettings.agentType = "";
+            HelperAppSettings.fcm_token = "";
+            HelperAppSettings.capName = "";
+            HelperAppSettings.bankname = "";
+            HelperAppSettings.address = "";
+            HelperAppSettings.gender = "";
             HelperAppSettings.Name = "";
+            HelperAppSettings.account_number = "";
+
             Application.Current.MainPage = fpm;
         }
 

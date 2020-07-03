@@ -27,11 +27,13 @@ namespace CoverMyCar.Views
         string claimImag;
         string claimImg;
         private string fileName;
+        IDownloader downloader = DependencyService.Get<IDownloader>();
 
         public LossAssessorClaim(string id)
         {
             myId = id;
             InitializeComponent();
+            downloader.OnFileDownloaded += OnFileDownloaded;
             LoadSingleClaim(id);
             CheckInternet();
         }
@@ -77,7 +79,17 @@ namespace CoverMyCar.Views
         {
             if(claimImage != null)
             {
-                await PopupNavigation.Instance.PushAsync(new PopImage(claimImage));
+               bool result = await DisplayAlert("Hello!","What would you like to do?","View Image","Save Image");
+                if (result == true)
+                {
+                    await Navigation.PushAsync(new ViewImage(claimImage));
+                }
+                else
+                {
+                    var uri = Helper.ImageUrl + claimImage;
+                    downloader.DownloadFile(uri, "peercover");
+                }
+                //await PopupNavigation.Instance.PushAsync(new PopImage(claimImage));
             }
             else
             {
@@ -86,30 +98,67 @@ namespace CoverMyCar.Views
             }
         }
 
-        public async void OnImage2Tapped(object sender, EventArgs e)
+        private async void OnFileDownloaded(object sender, DownloadEventArgs e)
         {
-            if (claimImg != null)
+            if (e.FileSaved)
             {
-                await PopupNavigation.Instance.PushAsync(new PopImage2(claimImg));
+                await DisplayAlert("PeerCover", "Image Saved Successfully", "Ok");
             }
             else
             {
-                await DisplayAlert("Oops!", "Image not available", "Ok");
-                return;
+                await DisplayAlert("PeerCover", "Error while saving image. Try again later", "Ok");
             }
+        }
+
+        //private void DownloadClicked(object sender, EventArgs e)
+        //{
+        //    var uri = Helper.ImageUrl + image1;
+        //    downloader.DownloadFile(uri, "peercover");
+        //}
+        public async void OnImage2Tapped(object sender, EventArgs e)
+        {
+            bool result = await DisplayAlert("Hello!", "What would you like to do?", "View Image", "Save Image");
+            if (result == true)
+            {
+                await Navigation.PushAsync(new ViewImage2(claimImg));
+            }
+            else
+            {
+                var uri = Helper.ImageUrl + claimImg;
+                downloader.DownloadFile(uri, "peercover");
+            }
+            //if (claimImg != null)
+            //{
+            //    await PopupNavigation.Instance.PushAsync(new PopImage2(claimImg));
+            //}
+            //else
+            //{
+            //    await DisplayAlert("Oops!", "Image not available", "Ok");
+            //    return;
+            //}
         }
 
         public async void OnImage3Tapped(object sender, EventArgs e)
         {
-            if (claimImag != null)
-           {
-                await PopupNavigation.Instance.PushAsync(new PopImage3(claimImag));
-           }
+            bool result = await DisplayAlert("Hello!", "What would you like to do?", "View Image", "Save Image");
+            if (result == true)
+            {
+                await Navigation.PushAsync(new ViewImage3(claimImag));
+            }
             else
             {
-                await DisplayAlert("Oops!","Image not available","Ok");
-                return;
+                var uri = Helper.ImageUrl + claimImag;
+                downloader.DownloadFile(uri, "peercover");
             }
+            // if (claimImag != null)
+            //{
+            //     await PopupNavigation.Instance.PushAsync(new PopImage3(claimImag));
+            //}
+            // else
+            // {
+            //     await DisplayAlert("Oops!","Image not available","Ok");
+            //     return;
+            // }
         }
 
         public async void UploadDocTapped(object sender, EventArgs e)

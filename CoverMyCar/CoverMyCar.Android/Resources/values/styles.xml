@@ -12,6 +12,7 @@
     <!-- Set theme colors from https://aka.ms/material-colors -->
     <!-- colorPrimary is used for the default action bar background -->
     <item name="colorPrimary">#2fcf8f</item>
+    <item name="android:fontFamily">fonts/opensans_regular.ttf</item>
     <!--<item name="android:statusBarColor">#FFFFFF</item>-->
     <!--<item name="android:navigationBarColor">#2fcf8f</item>-->
     <!-- colorPrimaryDark is used for the status bar -->
@@ -30,4 +31,8 @@
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#2fcf8f</item>
   </style>
+  
+  <!--<style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <item name="fontPath">fonts/opensans_regular.ttf</item>
+  </style>-->
 </resources>

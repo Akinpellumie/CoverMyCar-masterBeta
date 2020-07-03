@@ -67,11 +67,11 @@ namespace CoverMyCar.Views
             HelperAppSettings.lastname = "";
             HelperAppSettings.username = "";
             HelperAppSettings.email = "";
+            HelperAppSettings.loss_assessor_id = "";
             HelperAppSettings.agentType = "";
             HelperAppSettings.loss_assessor_id = "";
             HelperAppSettings.marketing_consultant_id = "";
             HelperAppSettings.phonenumber = "";
-            HelperAppSettings.commCode = "";
             HelperAppSettings.Name = "";
             Application.Current.MainPage = fpm;
         }

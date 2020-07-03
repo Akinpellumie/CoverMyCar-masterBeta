@@ -103,7 +103,7 @@
                 <Setter Property="FontSize" Value="12"/>
                 <Setter Property="FontFamily" Value="{StaticResource font_book}"/>
             </Style>
-
+       
             <Style x:Key="PickerStyle" TargetType="Picker">
                 <Setter Property="HeightRequest" Value="35"></Setter>
                 <Setter Property="Margin" Value="5,0,0,0"></Setter>

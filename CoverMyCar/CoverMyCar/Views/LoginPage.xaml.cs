@@ -110,7 +110,7 @@ namespace CoverMyCar.Views
                             var resultee = await client.PostAsync(LoginEndpoint, contents);
 
                             string responseeee = await resultee.Content.ReadAsStringAsync();
-                            if (result.IsSuccessStatusCode)
+                            if (resultee.IsSuccessStatusCode)
                             {
                                 var profile = JsonConvert.DeserializeObject<LoginProfileModel>(responseeee);
 
@@ -132,7 +132,6 @@ namespace CoverMyCar.Views
                                 HelperAppSettings.gender = profile.gender;
                                 HelperAppSettings.Name = profile.name;
                                 HelperAppSettings.account_number = profile.account_number;
-
                                 if (HelperAppSettings.agentType.Contains("Loss Assessor"))
                                 {
                                     AppShell fpm = new AppShell();

@@ -60,6 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CallygraphyXamarin">
+      <Version>2.3.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter">
       <Version>3.2.2</Version>
     </PackageReference>
@@ -101,12 +104,12 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidDownloader.cs" />
     <Compile Include="BorderlessEditorRenderer.cs" />
     <Compile Include="CustomEditorRenderer.cs" />
     <Compile Include="CustomEntryRenderer.cs" />
     <Compile Include="CustomPickerRenderer.cs" />
     <Compile Include="CustomSearchRenderer.cs" />
-    <Compile Include="FileService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyFirebaseIIDService.cs" />
     <Compile Include="MyFireMessagingService.cs" />
@@ -127,6 +130,10 @@
     <AndroidAsset Include="Assets\OpenSans-SemiBold.ttf" />
     <GoogleServicesJson Include="google-services.json" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Assets\fonts\opensans_regular.ttf">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\font\opensans_regular.ttf" />
   </ItemGroup>
@@ -144,9 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\AppLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\banner.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\calendar.png" />
@@ -176,9 +180,6 @@
     <AndroidResource Include="Resources\drawable\email.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\forgotPwdIcn.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Gcommunities.png" />
   </ItemGroup>
   <ItemGroup>
@@ -194,9 +195,6 @@
     <AndroidResource Include="Resources\drawable\humanGreetng.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Launch.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -209,9 +207,6 @@
     <AndroidResource Include="Resources\drawable\mapMarker.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\markBg.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\MyComm.png" />
   </ItemGroup>
   <ItemGroup>
@@ -222,9 +217,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\notifyMe.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ProfilePic.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\profilePNG.png" />
@@ -254,9 +246,6 @@
     <AndroidResource Include="Resources\drawable\undrawNav.svg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\undrawPass.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\undrawPass.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -273,12 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\web.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\welcome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\welcomeGif.gif" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
@@ -339,6 +322,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\undrawProfile.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\undrawNavigation.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

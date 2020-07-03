@@ -16,11 +16,11 @@
                 <StackLayout>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                     </Grid>
                     <!--<StackLayout Grid.Row="0">
@@ -65,26 +65,26 @@
                         </StackLayout>
 
                         <StackLayout Margin="5" Grid.Row="2">
-                            <Grid>
+                            <Grid ColumnSpacing="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Image x:Name="claimImage1" Grid.Column="0"  Source="carImg.png" Aspect="Fill" HeightRequest="70" WidthRequest="70">
+                                <Image x:Name="claimImage1" Grid.Column="0" Source="carImg.png" Aspect="AspectFit">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnImageTapped"/>
                                     </Image.GestureRecognizers>
                                 </Image>
                                 
-                                <Image x:Name="claimImage2" Grid.Column="1" Source="carImg.png" Aspect="Fill" HeightRequest="70" WidthRequest="70">
+                                <Image x:Name="claimImage2" Grid.Column="1" Source="carImg.png" Aspect="AspectFit">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnImage2Tapped"/>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                
-                                <Image x:Name="claimImage3" Grid.Column="2" Source="carImg.png" Aspect="Fill" HeightRequest="70" WidthRequest="70">
+
+                                <Image x:Name="claimImage3" Grid.Column="2" Source="carImg.png" Aspect="AspectFit">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnImage3Tapped"/>
                                     </Image.GestureRecognizers>
@@ -93,9 +93,9 @@
                         </StackLayout>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="3">
+                    <StackLayout Grid.Row="3" BackgroundColor="White">
                         <StackLayout Margin="0,5,0,5" BackgroundColor="#f5fafa" HorizontalOptions="FillAndExpand">
-                            <Label Margin="10" HorizontalOptions="CenterAndExpand" Text="Loss Aseessor Panel" TextColor="#828282"
+                            <Label Margin="10" HorizontalOptions="CenterAndExpand" Text="Loss Aseessor Panel" FontAttributes="Bold" TextColor="#828282"
                            FontSize="18"/>
                         </StackLayout>
                         <StackLayout Margin="10">
@@ -103,7 +103,7 @@
 
                             <Frame Style="{StaticResource FrameStyle}" Margin="5,0,10,5" CornerRadius="50">
                                 <Controls1:CustomEntry x:Name="RecInput" Keyboard="Default" Margin="5,0,0,3" VerticalOptions="End"
-                                                       TextChanged="CostInput_TextChanged" FontSize="Subtitle"  FontFamily="OpenSans"
+                                                       TextChanged="CostInput_TextChanged" FontSize="Subtitle"  FontFamily="{StaticResource font_book}"
                                   Style="{StaticResource EntryStyle}" Placeholder="#65.00" PlaceholderColor="{StaticResource TypeColor}"/>
                             </Frame>
                         </StackLayout>

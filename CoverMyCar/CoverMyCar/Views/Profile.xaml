@@ -27,8 +27,8 @@
     <pv:PancakeView HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundGradientAngle="180">
         <pv:PancakeView.BackgroundGradientStops>
             <pv:GradientStopCollection>
-                <pv:GradientStop Color="#E7EDF8" Offset="0"/>
-                <pv:GradientStop Color="#E3E7EE" Offset="1"/>
+                <pv:GradientStop Color="White" Offset="0"/>
+                <pv:GradientStop Color="WhiteSmoke" Offset="1"/>
             </pv:GradientStopCollection>
         </pv:PancakeView.BackgroundGradientStops>
 
@@ -47,12 +47,11 @@
                         </Grid.RowDefinitions>
                         <ff1:SvgCachedImage Margin="3,0,3,0" Grid.RowSpan="2" Opacity="0.5" x:Name="gbayiiPr" Source="undrawProfile.svg"
                                     Aspect="AspectFill" />
-                        <Grid Grid.Row="1" HeightRequest="80" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid Grid.Row="1" HeightRequest="80" BackgroundColor="White" Opacity="0.95" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
-                            <BoxView BackgroundColor="White" Opacity="0.8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                             <pv:PancakeView Grid.Column="0" HasShadow="True" HeightRequest="70" WidthRequest="70" CornerRadius="35" Margin="20,0,20,0"
                                 HorizontalOptions="Start" VerticalOptions="Center" BackgroundGradientAngle="180">
                                 <pv:PancakeView.BackgroundGradientStops>

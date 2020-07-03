@@ -10,5 +10,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/msgText"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:fontFamily="@font/opensans_regular"
         android:padding="10dp" />
 </LinearLayout>

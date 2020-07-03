@@ -58,7 +58,7 @@
 
                 <StackLayout Grid.Row="1">
                     <ListView x:Name="ComsList" CachingStrategy="RecycleElement" VerticalScrollBarVisibility="Default"
-                          HasUnevenRows="True" SeparatorColor="#f7c565" ItemTapped="ViewCommTapped"
+                          HasUnevenRows="True" SeparatorColor="LightGray" ItemTapped="ViewCommTapped"
                               SeparatorVisibility="Default">
                         <ListView.ItemTemplate>
                             <DataTemplate>
